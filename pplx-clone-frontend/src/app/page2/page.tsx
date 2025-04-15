@@ -12,7 +12,7 @@ interface Source {
 }
 
 // const API_URL = "http://localhost:8001";
-const API_URL = "https://pplx-clone.onrender.com";
+const API_URL = "https://pplx-hitl.onrender.com";
 
 export default function Home() {
 	const [input, setInput] = useState("");
@@ -93,7 +93,7 @@ export default function Home() {
 
 			if (!reader) return;
 
-			let firstChunkProcessed = false;
+			// let firstChunkProcessed = false;
 
 			while (true) {
 				const { done, value } = await reader.read();
@@ -146,7 +146,7 @@ export default function Home() {
 					// This handles all chunks that don't include metadata
 					// const trimmed = chunk.trim();
 					const trimmed = chunk;
-					if (trimmed) {
+					if (trimmed && !trimmed.includes("[search_queries]")) {
 						setOutput((prev) => prev + trimmed);
 					}
 				}
