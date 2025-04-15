@@ -3,7 +3,7 @@
 // import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {

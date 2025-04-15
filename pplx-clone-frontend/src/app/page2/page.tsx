@@ -20,6 +20,7 @@ export default function Home() {
 	const [output, setOutput] = useState("");
 	const [isStreaming, setIsStreaming] = useState(false);
 	const outputRef = useRef<HTMLDivElement>(null);
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [sources, setSources] = useState<Source[]>([]);
 	const [heading, setHeading] = useState("");
 	const [isTextAreaDisabled, setIsTextAreaDisabled] = useState(false);
