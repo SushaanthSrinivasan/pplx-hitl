@@ -150,7 +150,9 @@ export default function Home() {
 					if (
 						trimmed &&
 						!trimmed.includes("[search_queries]") &&
-						!trimmed.includes("[sources]")
+						!trimmed.includes("[sources]") &&
+						!trimmed.includes("{") &&
+						!trimmed.includes("}")
 					) {
 						setOutput((prev) => prev + trimmed);
 					}
