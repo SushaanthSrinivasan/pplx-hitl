@@ -831,7 +831,7 @@ export default function Home() {
 																		</div>
 																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
 																			<a
-																				href="https://www.linkedin.com/in/sushaanth-srinivasan/"
+																				href="https://sushaanth.co/pplx"
 																				target="_blank"
 																			>
 																				<div
@@ -846,7 +846,7 @@ export default function Home() {
 																		</div>
 																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
 																			<a
-																				href="https://drive.google.com/drive/folders/1aVlL65hfW2soHYtWtaZCkdw7nYruXcI9?usp=sharing"
+																				href="https://drive.google.com/file/d/1L6JmuV9RO0pp9Cj1xcZn5wuBmKOpM-dE/view?usp=sharing"
 																				target="_blank"
 																			>
 																				<div

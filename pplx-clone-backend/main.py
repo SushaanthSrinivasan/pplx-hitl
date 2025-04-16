@@ -27,7 +27,8 @@ config = Config()
 # --- Create SambaNova client ---
 openai_client = openai.OpenAI(
     api_key=config.SAMBANOVA_API_KEY,
-    base_url=config.SAMBANOVA_BASE_URL
+    base_url=config.SAMBANOVA_BASE_URL,
+    timeout=120
 )
 
 tavily_client = TavilyClient(api_key=config.TAVILY_API_KEY)
