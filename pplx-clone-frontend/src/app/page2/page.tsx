@@ -147,7 +147,11 @@ export default function Home() {
 					// This handles all chunks that don't include metadata
 					// const trimmed = chunk.trim();
 					const trimmed = chunk;
-					if (trimmed && !trimmed.includes("[search_queries]")) {
+					if (
+						trimmed &&
+						!trimmed.includes("[search_queries]") &&
+						!trimmed.includes("[sources]")
+					) {
 						setOutput((prev) => prev + trimmed);
 					}
 				}
