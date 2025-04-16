@@ -11,6 +11,7 @@ import os
 import asyncio
 from tavily import TavilyClient
 import json
+import traceback
 
 load_dotenv()
 
@@ -79,7 +80,13 @@ async def generate_research_data(user_prompt: str):
 
         search_queries = [q.strip() for q in query_text.split(",") if q.strip()]
     except Exception as e:
-        print(f"[LLM query generation error] {e}")
+        # print(f"[LLM query generation error] {e}")
+        # return [], "Could not generate search queries.", []
+
+        print("[LLM query generation error]")
+        print(f"Exception type: {type(e).__name__}")
+        print(f"Exception message: {e}")
+        traceback.print_exc()  # prints full stack trace
         return [], "Could not generate search queries.", []
 
     all_results_text = []

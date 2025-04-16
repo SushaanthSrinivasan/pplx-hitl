@@ -11,8 +11,8 @@ interface Source {
 	content: string;
 }
 
-// const API_URL = "http://localhost:8001";
-const API_URL = "https://pplx-hitl.onrender.com";
+const API_URL = "http://localhost:8001";
+// const API_URL = "https://pplx-hitl.onrender.com";
 
 export default function Home() {
 	const [input, setInput] = useState("");

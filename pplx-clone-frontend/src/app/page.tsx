@@ -861,7 +861,7 @@ export default function Home() {
 																		</div>
 																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
 																			<a
-																				href="https://www.linkedin.com/in/sushaanth-srinivasan/"
+																				href="https://github.com/SushaanthSrinivasan/pplx-hitl"
 																				target="_blank"
 																			>
 																				<div
@@ -869,7 +869,7 @@ export default function Home() {
 																					style={{ padding: "20px" }}
 																				>
 																					<div style={{ color: "white" }}>
-																						Pplx Clone Source Code
+																						PPLX HITL Code
 																					</div>
 																				</div>
 																			</a>
