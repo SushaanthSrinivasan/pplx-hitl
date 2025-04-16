@@ -66,6 +66,13 @@ export default function Home() {
 		}
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === "Enter" && !e.shiftKey) {
+			e.preventDefault(); // Prevents newline
+			startReasoningOrFeedback();
+		}
+	};
+
 	const startReasoningOrFeedback = async () => {
 		setInput("");
 		setSearchingText("Searching");
@@ -2133,6 +2140,7 @@ export default function Home() {
 																												height:
 																													"24px !important",
 																											}}
+																											onKeyDown={handleKeyDown}
 																										></textarea>
 																									</div>
 																									<div className="bg-background dark:bg-offsetDark gap-sm flex rounded-l-lg order-0 ml-px">
