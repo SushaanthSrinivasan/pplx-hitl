@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
-import openai
+# import openai
 import uuid
 from pydantic import BaseModel
 import time
@@ -12,6 +12,8 @@ import asyncio
 from tavily import TavilyClient
 import json
 import traceback
+# from google import genai
+from litellm import completion
 
 load_dotenv()
 
@@ -22,14 +24,20 @@ class Config:
     TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
     LLM_REASONING = "Meta-Llama-3.3-70B-Instruct"
 
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+    LLM_GEMINI="gemini/gemini-2.0-flash"
+
 config = Config()
 
-# --- Create SambaNova client ---
-openai_client = openai.OpenAI(
-    api_key=config.SAMBANOVA_API_KEY,
-    base_url=config.SAMBANOVA_BASE_URL,
-    timeout=120
-)
+# # --- Create SambaNova client ---
+# openai_client = openai.OpenAI(
+#     api_key=config.SAMBANOVA_API_KEY,
+#     base_url=config.SAMBANOVA_BASE_URL,
+#     timeout=120
+# )
+
+# client = genai.Client(api_key=config.GEMINI_API_KEY)
+
 
 tavily_client = TavilyClient(api_key=config.TAVILY_API_KEY)
 
@@ -67,15 +75,22 @@ async def generate_research_data(user_prompt: str):
                 # "Example response: query1, query2, query3"
             )
         },
-        {"role": "user", "content": f"User prompt: {user_prompt}\n\nONLY RETURN THE SEARCH QUERIES AS A COMMA SEPARATED LIST. THE OUTCOME OF THIS RESPONSE HAS FAR-REACHING IMPLICATIONS. ANY ERROR, HOWEVER MINOR, COULD ESCALATE INTO A SERIOUS ISSUE.\nExample response: query1, query2, query3\n\n"}
+        {"role": "user", "content": f"User prompt: {user_prompt}\n\nONLY RETURN THE SEARCH QUERIES AS A COMMA SEPARATED LIST WITHOUT ANY TYPE OF QUOTATION MARKS. THE OUTCOME OF THIS RESPONSE HAS FAR-REACHING IMPLICATIONS. ANY ERROR, HOWEVER MINOR, COULD ESCALATE INTO A SERIOUS ISSUE.\nExample response: query1, query2, query3\n\n"}
     ]
 
     try:
-        query_response = openai_client.chat.completions.create(
-            model=config.LLM_REASONING,
+        # query_response = openai_client.chat.completions.create(
+        #     model=config.LLM_REASONING,
+        #     messages=query_generation_prompt,
+        # )
+        # query_text = query_response.choices[0].message.content.strip()
+
+        query_response = completion(
+            model=config.LLM_GEMINI,
             messages=query_generation_prompt,
         )
         query_text = query_response.choices[0].message.content.strip()
+
 
         print(f"[+] Generated search queries: {query_text}")
 
@@ -175,7 +190,8 @@ async def stream_response(session_id: str, request: Request):
                 f"You are an intelligent agent helping with deep reasoning. Your job is to provide a report of 5 paragraphs each containing around 10 sentences.\n"
                 f"User research request: {user_prompt}\n\n"
                 f"Relevant context:\n{research_context}\n\n"
-                f"Start thinking step-by-step."
+                # f"Start thinking step-by-step."
+                "Return in plain text, no markdown."
             )
 
             messages = [
@@ -183,9 +199,28 @@ async def stream_response(session_id: str, request: Request):
                 {"role": "user", "content": user_prompt}
             ]
 
+            # gemini_message = {
+            #     "contents": [{
+            #         "parts": [
+            #             # System instruction comes first
+            #             {"text": f"SYSTEM: You are an intelligent agent helping with deep reasoning. Your job is to provide a report of 5 paragraphs each containing around 10 sentences.\nUser research request: {user_prompt}\n\nRelevant context:\n{research_context}\n\nStart thinking step-by-step."},
+                        
+            #             # User input follows
+            #             {"text": f"USER: {user_prompt}"}
+            #         ]
+            #     }]
+            # }
+
+
             def start_stream(prompt_messages):
-                return openai_client.chat.completions.create(
-                    model=config.LLM_REASONING,
+                # return openai_client.chat.completions.create(
+                #     model=config.LLM_REASONING,
+                #     messages=prompt_messages,
+                #     stream=True,
+                # )
+                    
+                return completion(
+                    model=config.LLM_GEMINI,
                     messages=prompt_messages,
                     stream=True,
                 )
@@ -197,6 +232,7 @@ async def stream_response(session_id: str, request: Request):
             # time.sleep(2) # in s
             
             stream = start_stream(messages)
+            # stream = start_stream(gemini_message)
 
             full_text = ""
             paragraph_count = 0

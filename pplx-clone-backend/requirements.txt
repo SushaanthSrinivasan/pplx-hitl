@@ -5,3 +5,5 @@ openai
 tavily-python
 pydantic
 aiofiles
+google-genai
+litellm
