@@ -20,6 +20,13 @@ export default function Home() {
 		setInput(e.target.value);
 	};
 
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+		if (e.key === "Enter" && !e.shiftKey) {
+			e.preventDefault(); // Prevents newline
+			handleDictationClick();
+		}
+	};
+
 	return (
 		<>
 			<Head>
@@ -572,6 +579,7 @@ export default function Home() {
 																							autoComplete="off"
 																							rows={2}
 																							data-1p-ignore="true"
+																							onKeyDown={handleKeyDown}
 																						></textarea>
 																					</div>
 																					<div className="bg-background dark:bg-offsetDark gap-sm flex rounded-l-lg col-start-1 row-start-2 -ml-1">
