@@ -802,7 +802,7 @@ export default function Home() {
 																			gridAutoRows: "64px",
 																		}}
 																	>
-																		<div className="col-span-2 row-span-2 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
+																		<div className="col-span-2 row-span-2 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark hover:bg-super/20 dark:hover:bg-superDark/20 transition duration-200 ease-in-out">
 																			<a
 																				href="https://www.linkedin.com/in/sushaanth-srinivasan/"
 																				target="_blank"
@@ -829,7 +829,7 @@ export default function Home() {
 																				</div>
 																			</a>
 																		</div>
-																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
+																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark hover:bg-super/20 dark:hover:bg-superDark/20 transition duration-200 ease-in-out">
 																			<a
 																				href="https://sushaanth.co/pplx"
 																				target="_blank"
@@ -844,7 +844,7 @@ export default function Home() {
 																				</div>
 																			</a>
 																		</div>
-																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
+																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark hover:bg-super/20 dark:hover:bg-superDark/20 transition duration-200 ease-in-out">
 																			<a
 																				href="https://drive.google.com/file/d/1L6JmuV9RO0pp9Cj1xcZn5wuBmKOpM-dE/view?usp=sharing"
 																				target="_blank"
@@ -859,7 +859,7 @@ export default function Home() {
 																				</div>
 																			</a>
 																		</div>
-																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
+																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark hover:bg-super/20 dark:hover:bg-superDark/20 transition duration-200 ease-in-out">
 																			<a
 																				href="https://github.com/SushaanthSrinivasan/pplx-hitl"
 																				target="_blank"
@@ -874,7 +874,7 @@ export default function Home() {
 																				</div>
 																			</a>
 																		</div>
-																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark">
+																		<div className="col-span-2 row-span-1 rounded-md border-borderMain/50 ring-borderMain/50 divide-borderMain/50 dark:divide-borderMainDark/50 dark:ring-borderMainDark/50 dark:border-borderMainDark/50 bg-offset dark:bg-offsetDark hover:bg-super/20 dark:hover:bg-superDark/20 transition duration-200 ease-in-out">
 																			<a
 																				href="https://github.com/SushaanthSrinivasan"
 																				target="_blank"
